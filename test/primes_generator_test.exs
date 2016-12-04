@@ -1,8 +1,9 @@
 defmodule PrimesGeneratorTest do
   use ExUnit.Case
   doctest PrimesGenerator
+  import PrimesGenerator
 
-  test "the truth" do
-    assert 1 + 1 == 2
+  test "When asking for single prime it will return just 2" do
+    assert [2] == PrimesGenerator.generate_prime 1
   end
 end
