@@ -1,0 +1,2 @@
+defmodule PrimesGenerator do
+end
