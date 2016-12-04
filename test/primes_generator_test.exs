@@ -5,11 +5,11 @@ defmodule PrimesGeneratorTest do
   import PrimesGenerator
 
   test "When asking for single prime it will return just 2" do
-    assert [2] == PrimesGenerator.generate_prime 1
+    assert [2] == PrimesGenerator.generate_prime(1)
   end
 
   test "When asking for two primes it will return 2 and 3" do
-    assert [2, 3] == PrimesGenerator.generate_prime 2
+    assert [2, 3] == PrimesGenerator.generate_prime(2)
   end
 
   test_with_params "When asking for a number of primes, that amount should be returned",
@@ -28,7 +28,7 @@ defmodule PrimesGeneratorTest do
   fn(number_of_primes) ->
 	assert (PrimesGenerator.generate_prime(number_of_primes)
 	  |> Enum.drop(1)
-	  |> Enum.all?(fn(x) -> rem(x,2) ==1 end))
+	  |> Enum.all?(fn(x) -> rem(x,2) == 1 end))
   end do
 	[
 	  {1},
