@@ -37,4 +37,21 @@ defmodule PrimesGeneratorTest do
 	  {16}
 	]
   end
+
+  test_with_params "When asking for a number of primes, no number in result is a common denominator of another",
+  fn(number_of_primes) ->
+	result = PrimesGenerator.generate_prime(number_of_primes)	
+	assert (result
+	  |> Enum.all?(
+		fn(x) -> Enum.filter(result, fn(y) -> x != y end)
+		  |> Enum.all?(fn(y) -> rem(y,x) != 0 end)
+		end))
+  end do
+	[
+	  {1},
+	  {4},
+	  {8},
+	  {16}
+	]
+  end
 end
