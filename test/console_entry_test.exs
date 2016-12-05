@@ -31,15 +31,21 @@ defmodule ConsoleEntryTest do
 	assert {:ok, 3} = ConsoleEntry.parse_args(["3"])
   end
 
-  test "When invalid is passed with just a string, a string is returned" do
+  test "When invalid is passed with just a string, a string with the invalid parameter is returned" do
 	result = ConsoleEntry.process({:invalid, "a"})
 	assert is_binary(result)
 	assert String.contains?(result, " a")
   end
 
-  test "When invalied is passed with an arrary, a string is returned" do
+  test "When invalid is passed with an array, a string with the invalid parameters is returned" do
 	result = ConsoleEntry.process({:invalid, ["a", "notvalid"]})
 	assert is_binary(result)
 	assert String.contains?(result, " a notvalid")
+  end
+
+  test "When help is requested, a string with help is returned" do
+	result = ConsoleEntry.process(:help)
+	assert is_binary(result)
+	assert String.contains?(result, " help ")
   end
 end
