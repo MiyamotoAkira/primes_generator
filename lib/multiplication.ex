@@ -1,5 +1,5 @@
 defmodule Multiplication do
   def cross_multiplication(numbers) do
-	[List.first(numbers) * List.first(numbers)]
+	Enum.map(numbers, fn(x) -> Enum.map(numbers, fn(y) -> x * y end) end)
   end
 end
