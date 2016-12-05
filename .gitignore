@@ -17,3 +17,4 @@ erl_crash.dump
 *.ez
 
 console_entry
+*.beam
