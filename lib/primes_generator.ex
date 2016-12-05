@@ -11,9 +11,13 @@ defmodule PrimesGenerator do
   defp select_next_prime([]) do
 	2
   end
+
+  defp select_next_prime([2]) do
+	3
+  end  
   
   defp select_next_prime(generated) do
-	next = List.first(generated) + 1
+	next = List.first(generated) + 2
 	Stream.iterate(next, &(&1+1))
 	|> sieve(generated)
 	|> Stream.take(1)
