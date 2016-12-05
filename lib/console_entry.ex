@@ -1,5 +1,6 @@
 defmodule ConsoleEntry do
   import PrimesGenerator
+  import Multiplication
 
   @error_message "You have passed the following incorrect values:"
   @command_suggestion "The following is the expected input:"
@@ -8,6 +9,7 @@ defmodule ConsoleEntry do
   @second_line "The only parameter needed is the number of primes that you want to use"
   @example_string "The following is an example"
   @example "console_entry 3"
+  @solution_info "The results are as follow:"
 
   def main(args) do
 	args
@@ -33,8 +35,8 @@ defmodule ConsoleEntry do
   def process(converted) do
 	case converted do
 	  {:invalid, value} -> craft_invalid_message(value)
-		
 	  :help -> craft_help_message()
+	  {:ok, value} -> craft_solution_message(value)
 	end
   end
 
@@ -51,5 +53,12 @@ defmodule ConsoleEntry do
 
   defp craft_help_message() do
 	"#{@first_line}\n#{@second_line}\n#{@command_option}\n\n#{@example_string}\n#{@example}"
+  end
+
+  defp craft_solution_message(value) do
+	result = value
+	|> PrimesGenerator.generate_prime
+	|> Multiplication.cross_multiplication
+	"#{@solution_info}"
   end
 end
