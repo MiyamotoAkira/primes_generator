@@ -3,6 +3,7 @@ defmodule ConsoleEntry do
   @error_message "You have passed the following incorrect values:"
   @command_suggestion "The following is the expected input:"
   @command_option "console_entry <number_of_primes>|[--help|-h]"
+  @positive_integer "where number_of_primes is bigger than 0"
   @first_line "console_entry will help you on finding the multiples of a selection of primes."
   @second_line "The only parameter needed is the number of primes that you want to use"
   @example_string "The following is an example"
@@ -24,6 +25,7 @@ defmodule ConsoleEntry do
 	  Enum.count(number_of_primes) == 1 ->
 		case Integer.parse(List.first(number_of_primes)) do
 		  :error -> {:invalid, List.first(number_of_primes)}
+		  {value, _ } when value < 1 -> {:invalid, value}
 		  {value, _} -> {:ok, value}
 		end
 	  true -> {:invalid, number_of_primes}
@@ -46,7 +48,7 @@ defmodule ConsoleEntry do
 		  value
 		end
 		
-	"#{@error_message} #{formatted}\n#{@command_suggestion}\n#{@command_option}"
+	"#{@error_message} #{formatted}\n#{@command_suggestion}\n#{@command_option}\n#{@positive_integer}"
   end
 
   defp craft_help_message() do

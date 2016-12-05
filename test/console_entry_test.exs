@@ -48,4 +48,15 @@ defmodule ConsoleEntryTest do
 	assert is_binary(result)
 	assert String.contains?(result, " help ")
   end
+
+  test_with_params "When a value less than 1 is passed, is should be an invalid result",
+  fn(x) ->
+	assert {:invalid, -1} = ConsoleEntry.parse_args(["-1"])
+  end do
+	[
+	  {0},
+	  {-1},
+	  {-100}
+	]
+  end
 end
