@@ -1,4 +1,4 @@
-defmodule Timing do
+defmodule BenchTiming do
   
   def run_for_1000 do
 	result = PrimesGenerator.generate_prime(1000)
