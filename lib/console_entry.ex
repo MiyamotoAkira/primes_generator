@@ -1,6 +1,4 @@
 defmodule ConsoleEntry do
-  import PrimesGenerator
-  import Multiplication
 
   @error_message "You have passed the following incorrect values:"
   @command_suggestion "The following is the expected input:"
@@ -59,6 +57,8 @@ defmodule ConsoleEntry do
 	result = value
 	|> PrimesGenerator.generate_prime
 	|> Multiplication.cross_multiplication
-	"#{@solution_info}"
+
+	output = Enum.reduce(result,"",  fn(x, acc) -> acc <> Enum.join(x, " ") <> "\n" end)
+	"#{@solution_info}\n#{output}"
   end
 end
