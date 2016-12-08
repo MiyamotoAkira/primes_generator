@@ -32,13 +32,9 @@ defmodule ConsoleEntry do
 	end
   end
 
-  def process(converted) do
-	case converted do
-	  {:invalid, value} -> craft_invalid_message(value)
-	  :help -> craft_help_message()
-	  {:ok, value} -> craft_solution_message(value)
-	end
-  end
+  def process({:invalid, value}), do: craft_invalid_message(value)
+  def process(:help), do: craft_help_message()
+  def process({:ok, value}), do: craft_solution_message(value)
 
   defp craft_invalid_message(value) do
 	formatted =
