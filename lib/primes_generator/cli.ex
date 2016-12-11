@@ -1,4 +1,4 @@
-defmodule ConsoleEntry do
+defmodule PrimesGenerator.CLI do
 
   @error_message "You have passed the following incorrect values:"
   @command_suggestion "The following is the expected input:"
