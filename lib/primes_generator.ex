@@ -18,7 +18,7 @@ defmodule PrimesGenerator do
   
   defp select_next_prime(generated) do
 	next = List.first(generated) + 2
-	Stream.iterate(next, &(&1+1))
+	Stream.iterate(next, &(&1+2))
 	|> sieve(generated)
 	|> Stream.take(1)
 	|> Enum.to_list
