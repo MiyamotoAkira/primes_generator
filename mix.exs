@@ -2,12 +2,12 @@ defmodule PrimesGenerator.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :console_entry,
+    [app: :primes_generator_app,
      version: "0.1.0",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-	 escript: [main_module: ConsoleEntry],
+	 escript: [main_module: PrimesGenerator.CLI],
      deps: deps()]
   end
 

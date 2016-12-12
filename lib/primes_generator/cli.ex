@@ -53,7 +53,7 @@ defmodule PrimesGenerator.CLI do
 
   defp craft_solution_message(value) do
 	result = value
-	|> PrimesGenerator.generate_prime
+	|> PrimesGenerator.Sieves.TrialDivision.generate_prime
 	|> Multiplication.cross_multiplication
 
 	output = Enum.reduce(result,"",  fn(x, acc) -> acc <> Enum.join(x, " ") <> "\n" end)

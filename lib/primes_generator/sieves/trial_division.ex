@@ -1,4 +1,4 @@
-defmodule PrimesGenerator do
+defmodule PrimesGenerator.Sieves.TrialDivision do
   def generate_prime(number_of_primes) do
 	Enum.take(Stream.unfold([],
 		  fn(generated) ->

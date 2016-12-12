@@ -17,4 +17,5 @@ erl_crash.dump
 *.ez
 
 console_entry
+primes_generator_app
 *.beam
