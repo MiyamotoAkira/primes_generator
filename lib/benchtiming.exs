@@ -13,9 +13,7 @@ defmodule BenchTiming do
   end
 
   def run_for_10000 do
-	result = PrimesGenerator.generate_prime(10000)
-	{time, _} =  :timer.tc(Multiplication, :cross_multiplication, [result])
-	IO.puts time
+	run(10000, &PrimesGenerator.Sieves.TrialDivision.generate_prime/1)
   end
 
   def run(number, sieve_function) do
