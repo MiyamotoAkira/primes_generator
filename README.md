@@ -8,11 +8,11 @@ Application created as a test for a company
 
 `mix escript.build` to get the compiled application
 
-`./console_entry 3` as an example to run the application
+`./primes_generator_app 3` as an example to run the application
 
 
 If you want, you can use
-`iex -S mix` to start the interactive environment, load my bench testing `c "lib/benchtiming.exs` and then run `BenchTiming.run_of_1000` and `BenchTiming.run_of_10000`.
+`iex -S mix` to start the interactive environment, load my bench testing `c "lib/benchtiming.exs` and then run `BenchTiming.run_of_1000` and `BenchTiming.run_of_10000`. There are no separate runners for the TrialDivision sieve and for an improved version (hopefully). Those are `run_trial/1` and `run_trial_imp/1`
 
 ## About the project
 
