@@ -17,7 +17,8 @@ defmodule BenchTiming do
   end
 
   def run(number, sieve_function) do
-    result = sieve_function.(number)
+    {time, result} = :timer.tc(sieve_function, [number])
+	IO.puts time
 	{time, _} =  :timer.tc(Multiplication, :cross_multiplication, [result])
 	IO.puts time
   end
