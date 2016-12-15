@@ -7,7 +7,7 @@ defmodule PrimesGenerator.Mixfile do
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-	 escript: [main_module: PrimesGenerator.CLI],
+     escript: [main_module: PrimesGenerator.CLI],
      deps: deps()]
   end
 
@@ -29,8 +29,8 @@ defmodule PrimesGenerator.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-	  {:ex_parameterized, "~> 1.1.0"},
-	  {:ex_doc, "~> 0.14", only: :dev}
-	]
+      {:ex_parameterized, "~> 1.1.0"},
+      {:ex_doc, "~> 0.14", only: :dev}
+    ]
   end
 end

@@ -14,18 +14,18 @@ defmodule BenchTiming do
     :ok
   """
   def run_trial(number) do
-	run(number, &PrimesGenerator.Sieves.TrialDivision.generate_prime/1)
+    run(number, &PrimesGenerator.Sieves.TrialDivision.generate_prime/1)
   end
 
   def run_trial_imp(number) do
-	run(number, &PrimesGenerator.Sieves.TrialDivisionImp.generate_prime/1)
+    run(number, &PrimesGenerator.Sieves.TrialDivisionImp.generate_prime/1)
   end
     
   defp run(number, sieve_function) do
     {time, result} = :timer.tc(sieve_function, [number])
-	IO.puts time
-	{time, _} =  :timer.tc(Multiplication, :cross_multiplication, [result])
-	IO.puts time
+    IO.puts time
+    {time, _} =  :timer.tc(Multiplication, :cross_multiplication, [result])
+    IO.puts time
   end
 
 end
