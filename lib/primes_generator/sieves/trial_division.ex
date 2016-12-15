@@ -1,11 +1,13 @@
 defmodule PrimesGenerator.Sieves.TrialDivision do
   def generate_prime(number_of_primes) do
-    Enum.take(Stream.unfold([],
-          fn(generated) ->
-            next_prime = select_next_prime(generated)
-            {next_prime, [next_prime | generated]}
-          end),
-      number_of_primes)
+    Enum.take(
+	  Stream.unfold(
+        [],
+        fn(generated) ->
+          next_prime = select_next_prime(generated)
+          {next_prime, [next_prime | generated]}
+	    end),
+        number_of_primes)
   end
 
   defp select_next_prime([]) do
@@ -18,6 +20,7 @@ defmodule PrimesGenerator.Sieves.TrialDivision do
   
   defp select_next_prime(generated) do
     next = List.first(generated) + 2
+	
     Stream.iterate(next, &(&1+2))
     |> sieve(generated)
     |> Stream.take(1)
